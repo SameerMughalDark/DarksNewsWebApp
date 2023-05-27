@@ -16,7 +16,7 @@ export default class NewsItems extends Component {
                     <div className="card-body">
                         <h5 className="card-title">{title===null?"Unknown":title.slice(0,50)}</h5>
                         <p className="card-text">{description===null?"Click Button to Read full News":description.slice(0,75)}...</p>
-                        <a href={Url} target='_blank' rel="noreferrer" className="btn btn-primary">Go somewhere</a>
+                        <a href={Url} target='_blank' rel="noreferrer" className="btn btn-warning">Read Full News</a>
                     </div>
                 </div>
             </div>
