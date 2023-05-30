@@ -16,7 +16,7 @@ export default class News extends Component {
         }
     }
     async componentDidMount(){
-       let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+       let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page}&pageSize=${this.props.pageSize}`;
        this.setState({loading:true})
        let data=await fetch(url);
        let parsedData= await data.json();
@@ -27,8 +27,8 @@ export default class News extends Component {
        })
     }
     handlePrevClick= async () => {
-      console.log('Previous');
-      let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+      // console.log('Previous');
+      let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
       this.setState({loading:true})
       let data=await fetch(url);
       let parsedData= await data.json();
@@ -40,8 +40,8 @@ export default class News extends Component {
     }
     
   handleNextClick= async () =>{
-      console.log('Next');
-      let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+      // console.log('Next');
+      let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f1da1ab2951f406d891df92eb1dca66e&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
       this.setState({loading:true})
       let data=await fetch(url);
       let parsedData= await data.json();
@@ -64,7 +64,7 @@ export default class News extends Component {
         
             {! this.state.loading && this.state.articles.map((element)=>{
                 return    <div className="col-md-4" key={element.url}>
-                <NewsItems title={element.title} description={element.description} imageUrl={element.urlToImage}  Url={element.url}/> 
+                <NewsItems title={element.title} description={element.description} imageUrl={element.urlToImage}  Url={element.url} authorName={element.author} publishedDate={element.publishedAt}/> 
                 </div>
             })} 
          

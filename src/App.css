@@ -1,0 +1,9 @@
+.authorTextModification b{
+ font-size: 15px;
+ background-color: #FFC107;
+}
+.dateTextModification b{
+    font-size: 12px;
+    background-color: rgb(253, 229, 93);
+
+}
